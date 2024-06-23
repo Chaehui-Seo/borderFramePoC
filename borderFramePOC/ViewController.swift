@@ -75,7 +75,7 @@ class ViewController: UIViewController {
 //        layer.fillColor = UIColor.red.cgColor
 //        targetView.layer.addSublayer(layer)
         
-        targetView.setBorder(borderWidth: 10, borderColor: UIColor.red.withAlphaComponent(0.5).cgColor, cornerRadius: 0, type: .outside)
+        targetView.setBorder(borderWidth: 10, borderColor: UIColor.red.withAlphaComponent(0.5).cgColor, cornerRadius: 20, type: .outside)
         secondTargetView.setBorder(borderWidth: 10, borderColor: UIColor.red.withAlphaComponent(0.5).cgColor, cornerRadius: 0, type: .inside)
         
 //        // Outside
@@ -160,66 +160,11 @@ class ViewController: UIViewController {
 
 
 extension UIView {
-    func getBezierPath() -> CGPath {
-        var outerPath = CGMutablePath()
-        let cornerRadius = self.layer.cornerRadius
-        let point = CGPoint(x: 0, y: 0 + cornerRadius)
-        outerPath.move(to: point)
-//        path.addLine(to: CGPoint(x: 0, y: 0 + cornerRadius))
-        if cornerRadius != 0 {
-            outerPath.addArc(center: CGPoint(x: 0 + cornerRadius, y: 0 + cornerRadius), radius: cornerRadius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: false)
-        }
-        outerPath.addLine(to: CGPoint(x: self.frame.width - cornerRadius, y: 0))
-        if cornerRadius != 0 {
-            outerPath.addArc(center: CGPoint(x: self.frame.width - cornerRadius, y: 0 + cornerRadius), radius: cornerRadius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: false)
-        }
-        outerPath.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height - cornerRadius))
-        if cornerRadius != 0 {
-            outerPath.addArc(center: CGPoint(x: self.frame.width - cornerRadius, y: self.frame.height - cornerRadius), radius: cornerRadius, startAngle: 0, endAngle: .pi / 2, clockwise: false)
-        }
-        outerPath.addLine(to: CGPoint(x: 0 + cornerRadius, y: self.frame.height))
-        if cornerRadius != 0 {
-            outerPath.addArc(center: CGPoint(x: 0 + cornerRadius, y: self.frame.height - cornerRadius), radius: cornerRadius, startAngle: .pi / 2, endAngle: .pi, clockwise: false)
-        }
-        
-        let innerPath = CGMutablePath()
-        innerPath.move(to: .init(x: 10, y: 10))
-        innerPath.addLine(to: .init(x: 20, y: 10))
-        innerPath.addLine(to: .init(x: 20, y: 20))
-        innerPath.addLine(to: .init(x: 10, y: 20))
-//        path2.addLine(to: .init(x: 10, y: 10))
-        
-        let intersectionPath = outerPath.subtracting(innerPath)
-        
-        
-//        let point = CGPoint(x: self.frame.minX, y: self.frame.minY + cornerRadius)
-//        path.move(to: point)
-//        path.addLine(to: CGPoint(x: self.frame.minX, y: self.frame.minY + cornerRadius))
-//        if cornerRadius != 0 {
-//            path.addArc(withCenter: CGPoint(x: self.frame.minX + cornerRadius, y: self.frame.minY + cornerRadius), radius: cornerRadius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: true)
-//        }
-//        path.addLine(to: CGPoint(x: self.frame.maxX - cornerRadius, y: self.frame.minY))
-//        if cornerRadius != 0 {
-//            path.addArc(withCenter: CGPoint(x: self.frame.maxX - cornerRadius, y: self.frame.minY + cornerRadius), radius: cornerRadius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: true)
-//        }
-//        path.addLine(to: CGPoint(x: self.frame.maxX, y: self.frame.maxY - cornerRadius))
-//        if cornerRadius != 0 {
-//            path.addArc(withCenter: CGPoint(x: self.frame.maxX - cornerRadius, y: self.frame.maxY - cornerRadius), radius: cornerRadius, startAngle: 0, endAngle: .pi / 2, clockwise: true)
-//        }
-//        path.addLine(to: CGPoint(x: self.frame.minX + cornerRadius, y: self.frame.maxY))
-//        if cornerRadius != 0 {
-//            path.addArc(withCenter: CGPoint(x: self.frame.minX + cornerRadius, y: self.frame.maxY - cornerRadius), radius: cornerRadius, startAngle: .pi / 2, endAngle: .pi, clockwise: true)
-//        }
-        
-        return intersectionPath
-    }
-    
     enum BorderType {
         case inside
         case center
         case outside
     }
-    
     
     func setBorder(borderWidth: CGFloat, borderColor: CGColor, cornerRadius: CGFloat, type: BorderType) {
         let layer = CAShapeLayer()
@@ -245,76 +190,53 @@ extension UIView {
             maxX = maxX + borderWidth
             minY = -(borderWidth)
             maxY = maxY + borderWidth
-            self.layer.cornerRadius = cornerRadius - (borderWidth / 2)
+            self.layer.cornerRadius = (cornerRadius - borderWidth) // outside에 테두리를 추가할 경우, innerCorner에 맞춰서 뷰의 cornerRadius 조정
         }
         
-        let outerPath = getRoundCornerRectanglePath(cornerRadius: cornerRadius, minX: minX, minY: minY, maxX: maxX, maxY: maxY)
-        
-//        let outerPath = CGMutablePath()
-//        let point = CGPoint(x: minX, y: minY + cornerRadius)
-//        outerPath.move(to: point)
-//        if cornerRadius != 0 {
-//            outerPath.addArc(center: CGPoint(x: minX + cornerRadius, y: minY + cornerRadius), radius: cornerRadius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: false)
-//        }
-//        outerPath.addLine(to: CGPoint(x: maxX - cornerRadius, y: minY))
-//        if cornerRadius != 0 {
-//            outerPath.addArc(center: CGPoint(x: maxX - cornerRadius, y: minY + cornerRadius), radius: cornerRadius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: false)
-//        }
-//        outerPath.addLine(to: CGPoint(x: maxX, y: maxY - cornerRadius))
-//        if cornerRadius != 0 {
-//            outerPath.addArc(center: CGPoint(x: maxX - cornerRadius, y: maxY - cornerRadius), radius: cornerRadius, startAngle: 0, endAngle: .pi / 2, clockwise: false)
-//        }
-//        outerPath.addLine(to: CGPoint(x: minX + cornerRadius, y: maxY))
-//        if cornerRadius != 0 {
-//            outerPath.addArc(center: CGPoint(x: minX + cornerRadius, y: maxY - cornerRadius), radius: cornerRadius, startAngle: .pi / 2, endAngle: .pi, clockwise: false)
-//        }
-//        outerPath.addLine(to: CGPoint(x: minX, y: minY + cornerRadius))
-        
-        let innerPath = getRoundCornerRectanglePath(cornerRadius: cornerRadius - (borderWidth / 2) > 0 ? cornerRadius - (borderWidth / 2) : 0, minX: minX + borderWidth, minY: minY + borderWidth, maxX: maxX - borderWidth, maxY: maxY - borderWidth)
-//        let innerPath = CGMutablePath()
-//        let innerCornerRadius = cornerRadius - (borderWidth / 2)
-//        innerPath.move(to: .init(x: minX + borderWidth, y: minY + borderWidth + innerCornerRadius))
-//        if innerCornerRadius != 0 {
-//            innerPath.addArc(center: CGPoint(x: minX + borderWidth + innerCornerRadius, y: minY + borderWidth + innerCornerRadius), radius: innerCornerRadius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: false)
-//        }
-//        innerPath.addLine(to: CGPoint(x: maxX - borderWidth - innerCornerRadius, y: minY + borderWidth))
-//        if innerCornerRadius != 0 {
-//            innerPath.addArc(center: CGPoint(x: maxX - borderWidth - innerCornerRadius, y: minY + borderWidth + innerCornerRadius), radius: innerCornerRadius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: false)
-//        }
-//        innerPath.addLine(to: CGPoint(x: maxX - borderWidth, y: maxY - borderWidth - innerCornerRadius))
-//        if innerCornerRadius != 0 {
-//            innerPath.addArc(center: CGPoint(x: maxX - borderWidth - innerCornerRadius, y: maxY - borderWidth - innerCornerRadius), radius: innerCornerRadius, startAngle: 0, endAngle: .pi / 2, clockwise: false)
-//        }
-//        innerPath.addLine(to: CGPoint(x: minX + borderWidth + innerCornerRadius, y: maxY - borderWidth))
-//        if innerCornerRadius != 0 {
-//            innerPath.addArc(center: CGPoint(x: minX + borderWidth + innerCornerRadius, y: maxY - borderWidth - innerCornerRadius), radius: innerCornerRadius, startAngle: .pi / 2, endAngle: .pi, clockwise: false)
-//        }
-//        innerPath.addLine(to: .init(x: minX + borderWidth, y: minY + borderWidth + innerCornerRadius))
-        
+        // 테두리의 바깥쪽 면
+        let outerPath = getRoundCornerRectanglePath(cornerRadius: cornerRadius,
+                                                    minX: minX,
+                                                    minY: minY,
+                                                    maxX: maxX,
+                                                    maxY: maxY)
+        // 테두리의 안쪽 면
+        let innerPath = getRoundCornerRectanglePath(cornerRadius: max((cornerRadius - borderWidth), 0), // 음수일 경우 0으로 계산
+                                                    minX: minX + borderWidth,
+                                                    minY: minY + borderWidth,
+                                                    maxX: maxX - borderWidth,
+                                                    maxY: maxY - borderWidth)
         let intersectionPath = outerPath.subtracting(innerPath)
-        
         layer.path = intersectionPath
         self.layer.addSublayer(layer)
     }
     
-    func getRoundCornerRectanglePath(cornerRadius: CGFloat, minX: CGFloat, minY: CGFloat, maxX: CGFloat, maxY: CGFloat) -> CGMutablePath {
+    private func getRoundCornerRectanglePath(cornerRadius: CGFloat, minX: CGFloat, minY: CGFloat, maxX: CGFloat, maxY: CGFloat) -> CGMutablePath {
         let path = CGMutablePath()
+        // 좌측 상단 - 시작점
         path.move(to: .init(x: minX, y: minY + cornerRadius))
-        if cornerRadius > 0 {
+        if cornerRadius > 0 { // 좌측 상단 모서리
             path.addArc(center: CGPoint(x: minX + cornerRadius, y: minY + cornerRadius), radius: cornerRadius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: false)
         }
+        
+        // 우측 상단
         path.addLine(to: CGPoint(x: maxX - cornerRadius, y: minY))
-        if cornerRadius > 0 {
+        if cornerRadius > 0 { // 우측 상단 모서리
             path.addArc(center: CGPoint(x: maxX - cornerRadius, y: minY + cornerRadius), radius: cornerRadius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: false)
         }
+        
+        // 우측 하단
         path.addLine(to: CGPoint(x: maxX, y: maxY - cornerRadius))
-        if cornerRadius > 0 {
+        if cornerRadius > 0 { // 우측 하단 모서리
             path.addArc(center: CGPoint(x: maxX - cornerRadius, y: maxY - cornerRadius), radius: cornerRadius, startAngle: 0, endAngle: .pi / 2, clockwise: false)
         }
+        
+        // 좌측 하단
         path.addLine(to: CGPoint(x: minX + cornerRadius, y: maxY))
-        if cornerRadius > 0 {
+        if cornerRadius > 0 { // 좌측 하단 모서리
             path.addArc(center: CGPoint(x: minX + cornerRadius, y: maxY - cornerRadius), radius: cornerRadius, startAngle: .pi / 2, endAngle: .pi, clockwise: false)
         }
+        
+        // 좌측 상단으로 복귀하는 변 추가 - 끝점
         path.addLine(to: .init(x: minX, y: minY + cornerRadius))
         return path
     }
