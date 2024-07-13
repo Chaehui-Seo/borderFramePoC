@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		EF99015F2C4274900098584A /* UIView+border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+border.swift"; sourceTree = "<group>"; };
-		EFA434572C1EC06200E3C0A9 /* borderFramePOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borderFramePOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFA434572C1EC06200E3C0A9 /* borderFramePoC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = borderFramePoC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA4345A2C1EC06200E3C0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA4345C2C1EC06200E3C0A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EFA4345E2C1EC06200E3C0A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		EFA4344E2C1EC06200E3C0A9 = {
 			isa = PBXGroup;
 			children = (
-				EFA434592C1EC06200E3C0A9 /* borderFramePOC */,
+				EFA434592C1EC06200E3C0A9 /* borderFramePoC */,
 				EFA434582C1EC06200E3C0A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		EFA434582C1EC06200E3C0A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFA434572C1EC06200E3C0A9 /* borderFramePOC.app */,
+				EFA434572C1EC06200E3C0A9 /* borderFramePoC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EFA434592C1EC06200E3C0A9 /* borderFramePOC */ = {
+		EFA434592C1EC06200E3C0A9 /* borderFramePoC */ = {
 			isa = PBXGroup;
 			children = (
 				EFA4345A2C1EC06200E3C0A9 /* AppDelegate.swift */,
@@ -67,15 +67,15 @@
 				EFA434652C1EC06500E3C0A9 /* LaunchScreen.storyboard */,
 				EFA434682C1EC06500E3C0A9 /* Info.plist */,
 			);
-			path = borderFramePOC;
+			path = borderFramePoC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EFA434562C1EC06200E3C0A9 /* borderFramePOC */ = {
+		EFA434562C1EC06200E3C0A9 /* borderFramePoC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFA4346B2C1EC06500E3C0A9 /* Build configuration list for PBXNativeTarget "borderFramePOC" */;
+			buildConfigurationList = EFA4346B2C1EC06500E3C0A9 /* Build configuration list for PBXNativeTarget "borderFramePoC" */;
 			buildPhases = (
 				EFA434532C1EC06200E3C0A9 /* Sources */,
 				EFA434542C1EC06200E3C0A9 /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = borderFramePOC;
+			name = borderFramePoC;
 			productName = borderFramePOC;
-			productReference = EFA434572C1EC06200E3C0A9 /* borderFramePOC.app */;
+			productReference = EFA434572C1EC06200E3C0A9 /* borderFramePoC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +105,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EFA434522C1EC06200E3C0A9 /* Build configuration list for PBXProject "borderFramePOC" */;
+			buildConfigurationList = EFA434522C1EC06200E3C0A9 /* Build configuration list for PBXProject "borderFramePoC" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFA434562C1EC06200E3C0A9 /* borderFramePOC */,
+				EFA434562C1EC06200E3C0A9 /* borderFramePoC */,
 			);
 		};
 /* End PBXProject section */
@@ -298,7 +298,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U52U9S3AX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = borderFramePOC/Info.plist;
+				INFOPLIST_FILE = borderFramePoC/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -309,7 +309,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chaehui.borderFramePOC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaehui.borderFramePoC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -326,7 +326,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U52U9S3AX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = borderFramePOC/Info.plist;
+				INFOPLIST_FILE = borderFramePoC/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -337,7 +337,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chaehui.borderFramePOC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaehui.borderFramePoC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,7 +348,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFA434522C1EC06200E3C0A9 /* Build configuration list for PBXProject "borderFramePOC" */ = {
+		EFA434522C1EC06200E3C0A9 /* Build configuration list for PBXProject "borderFramePoC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFA434692C1EC06500E3C0A9 /* Debug */,
@@ -357,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFA4346B2C1EC06500E3C0A9 /* Build configuration list for PBXNativeTarget "borderFramePOC" */ = {
+		EFA4346B2C1EC06500E3C0A9 /* Build configuration list for PBXNativeTarget "borderFramePoC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFA4346C2C1EC06500E3C0A9 /* Debug */,
