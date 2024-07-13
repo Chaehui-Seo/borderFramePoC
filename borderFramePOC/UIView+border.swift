@@ -8,12 +8,18 @@
 import UIKit
 
 extension UIView {
+    /**
+     Border 위치 타입
+     */
     enum BorderType {
         case inside
         case center
         case outside
     }
     
+    /**
+     Border 설정 메소드
+     */
     func setBorder(borderWidth: CGFloat, borderColor: CGColor, cornerRadius: CGFloat, type: BorderType) {
         self.layer.cornerRadius = cornerRadius
         
